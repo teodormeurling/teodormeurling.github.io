@@ -2,7 +2,9 @@ http://www.can.se/fakta/fragor-och-svar/narkotika/#Hur-manga-dor-av-narkotika-va
 http://www.svt.se/nyheter/inrikes/narkotikadodligheten-i-sverige-okar-kraftigt-nast-hogst-i-hela-eu
 http://www.emcdda.europa.eu/system/files/publications/2637/TDAT16001ENN.pdf
 https://www.youtube.com/watch?v=hFUVhGrAkRI
-
+0.006348379026373397 sverige
+0.00032049850142670393 portugal
+0.003206646503662136 finland
 
 splash
 "grattis sverige! vi är Bäst!"
