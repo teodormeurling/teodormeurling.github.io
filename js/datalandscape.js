@@ -1,48 +1,22 @@
-var data = {
-  labels: ['1', '2', '3', '4', '5', '6'],
+new Chartist.Line('.ct-chart', {
+  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
   series: [
-    {
-      data: [1, 2, 3, 5, 8, 13]
-    },
-    {
-      data: [0, 3, 5, 4, 3, 11]
-    },
-    {
-      data: [3, 5, 9, 7, 4, 2]
-    }
+    [12, 9, 7, 8, 5],
+    [2, 1, 3.5, 7, 3],
+    [1, 3, 4, 5, 6]
   ]
-};
-
-var options = {
-  chartPadding: 5,
-  axisX: {
-    offset: 10,
-    labelInterpolationFnc: function(value) {
-      return 'Week ' + value;
-    }
-  },
-  axisY: {
-    offset: 10
+}, {
+  fullWidth: true,
+  chartPadding: {
+    right: 40
   }
-};
+});
 
-var responsiveOptions = [
-  ['screen and (min-width: 641px) and (max-width: 1024px)', {
-    showPoint: false,
-    lineSmooth: false
-  }],
-  ['screen and (max-width: 640px)', {
-    showLine: false,
-    axisX: {
-      labelInterpolationFnc: function(value) {
-        return 'W' + value;
-      }
-    }
-  }]
-];
-
-var chart = Chartist('#chartist-chart', data, options, responsiveOptions);
-
-$(window).on('resize', function() {
-  chart.update();
+new Chartist.Line('#chart1', {
+  labels: ['monday', 'tuesday', 'wednsday', 'thursday', 'friday'],
+  series: [[100, 86, 40, 20, 25, 30]
+  ]
+  }, {
+low: 0,
+showArea: true
 });
