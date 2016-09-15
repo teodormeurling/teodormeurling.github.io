@@ -130,7 +130,7 @@ Chart.defaults.global = {
     onAnimationComplete: function(){}
 };
 var data = {
-	labels: ["2014", "2013", "2012", "2011", "2010", "2009", "2008"],
+	labels: ["2008", "2009", "2010", "2011", "2012", "2013", "2014"],
     datasets: [
         {
             label: "My First dataset",
@@ -140,7 +140,7 @@ var data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [609, 460, 419, 351, 327, 307, 288]
+            data: [288, 307, 327, 351, 419, 460, 609]
         },
         {
             label: "My Second dataset",
@@ -150,7 +150,7 @@ var data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [33, 22, 29, 19, 52, 56, 94]
+            data: [19, 56, 52, 19, 29, 22, 33]
         },
         {
             label: "My Third dataset",
@@ -160,7 +160,7 @@ var data = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [176, 201, 213, 197, 156, 175, 169]
+            data: [169, 175, 156, 197, 213, 201, 176]
         }
     ]
 };
