@@ -11,6 +11,7 @@
 
     <title>Comparison of Opioid Related Overdose Deaths in Sweden vs EU</title>
 
+
     <!-- Custom CSS -->
     <link href="css/one-page-wonder.css" rel="stylesheet">
 
@@ -79,10 +80,26 @@
         <hr class="featurette-divider">
 
         <!-- First Featurette -->
-        <div class="container-fluid bg-2 text-center">
-        	<div class="container">
-          		<div class="ct-chart ct-major-twelfth" id="chart1"></div>
-        		<script>
+        <div class="featurette" id="about">
+            <img class="featurette-image img-circle img-responsive pull-right" src="../img/imgthing.png">
+            <h2 class="featurette-heading">What you are the 2nd best at?
+                <span class="text-muted">Oh, that's opioid-related overdose deaths!</span>
+            </h2>
+            <p class="lead"> The latest report from EMCDDA shows a disturbing trend,
+              after seeing an increase in about 50%, Sweden has the 2nd
+              highest rate of people dying from opioid overdoses. With this presentation,
+              i will present some statistics and theories about the issue.
+
+             </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Second Featurette - Chart 1 (sweden vs eu - percentage of pop)-->
+        <div class="featurette" id="chart1">
+          <div class="container">
+              <div class="ct-chart" id="chart1"></div>
+            <script src="js/datalandscape.js">
           // Initialize a Line chart in the container with the ID chart1
           new Chartist.Line('#chart1', {
             labels: ['monday', 'tuesday', 'wednsday', 'thursday', 'friday'],
@@ -92,13 +109,15 @@
           low: 0,
           showArea: true
           });
-        		</script>
-        	</div>
+            </script>
+
+
+          </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <!-- Second Featurette - Chart 1 (sweden vs eu - percentage of pop)-->
+        <!-- third Featurette - Chart 1 (sweden vs eu - percentage of pop)-->
         <div class="featurette" id="services">
             <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
             <h2 class="featurette-heading">So, what's going on?
@@ -181,8 +200,13 @@
     <script src="js/bootstrap.min.js"></script>
 
 
-    <!-- chartjs -->
-    <script src="js/Chart.js"></script>
+    <!-- chartist -->
+    <script src="js/chartist.min.js"></script>
+
+    <!-- snaptosvg -->
+
+    <script src="js/datalandscape.js"></script>
+
 </body>
 
 </html>
