@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+			 <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">API Challenge</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Increased Property Sales In Greater Stockholm Area</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<p>Property prices in Stockholm are on the rise, you already know this by now.</p>
+							<p>We were interested if we could find any insights from analysing the property sales in three major Swedishes cities and the rest of Sweden over the past few years.</p>
+							<p>By using the SCB API we fetch and store the numbers in a javascript function, and use it to generate our beautiful graph</p>
+							<p>What we found was shocking...</p>
+							<h1 class="page-content"><a href="#chart" class="js-get">Get Data</a></h1>
+							<a name="chart"<div class="ct-chart"></div></a>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="field half first">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="field half">
+										<input type="email" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="field">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="special" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script>
+			var formated;
+
+			$(function(){
+
+			  $(".js-get").click(function(){
+
+			    var postURL = "http://api.scb.se/OV0104/v1/doris/sv/ssd/START/BO/BO0501/BO0501C/FastprisBRFRegionAr";
+			    var jsonData = {
+			  "query": [
+			    {
+			      "code": "Region",
+			      "selection": {
+			        "filter": "vs:Region99StorstadAEjAggr",
+			        "values": [
+			          "0010",
+			          "0020",
+			          "0030",
+			          "0060"
+			        ]
+			      }
+			    },
+			    {
+			      "code": "ContentsCode",
+			      "selection": {
+			        "filter": "item",
+			        "values": [
+			          "BO0501R6"
+			        ]
+			      }
+			    }
+			  ],
+			  "response": {
+			    "format": "json"
+			  }
+			};
+
+			$.post( postURL, JSON.stringify(jsonData), function(response) {
+			  console.log(data);
+			  formated = {
+			    sth: [],
+			    gbg: [],
+			    mlm: [],
+			    swe: []
+			  };
+			  var data = response["data"];
+			  for (var i = 0; i < data.length; i++) {
+			    var city = data[i]["key"][0];
+			    if (city === "0010") {
+			      formated["sth"].push((data[i]["values"][0]));
+			      console.log(data[i]["values"][0]);
+			    }
+			    if (city === "0020") {
+			      formated["gbg"].push((data[i]["values"][0]));
+			      console.log(data[i]["values"][0]);
+			    }
+			    if (city === "0030") {
+			      formated["mlm"].push((data[i]["values"][0]));
+			      console.log(data[i]["values"][0]);
+			    }
+			    if (city === "0060") {
+			      formated["swe"].push((data[i]["values"][0]));
+			      console.log(data[i]["values"][0]);
+			    }
+			  }
+			  console.log(formated);
+
+			  generateGraph();
+			  // var year = data.data[1].key[3]
+			  // var sthCount = data.data[0].values[0]
+			  // var gbgCount = data.data[0].values[0]
+			  // var mlmCount = data.data[0].values[0]
+			  // var sweCount = data.data[0].values[0]
+			  //
+			  // $(".year").html(year);
+			  // $(".sth").html(sthCount);
+			  // $(".gbg").html(gbgCount);
+			  // $(".mlm").html(mlmCount);
+			  // $(".swe").html(sweCount);
+			    });
+			  });
+			});
+			function generateGraph() {
+			  new Chartist.Line('.ct-chart', {
+			    labels: ['2000', '2001', '2002', '2003', '2003', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015'],
+			    series: [
+			      formated["sth"],
+			      formated["swe"],
+			      formated["gbg"],
+			      formated["mlm"]
+			    ]
+			  }, {
+			    fullWidth: true,
+			    chartPadding: {
+			      right: 100
+			    }
+			  });
+			}
+
+			</script>
+
+	</body>
+</html>
