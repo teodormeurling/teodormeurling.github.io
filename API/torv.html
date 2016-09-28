@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+    <title>API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+  </head>
+
+
+
+<body>
+
+
+<h1 class="page-content"><a href="#" class="js-get">Get Data</a></h1>
+  <h2>Year: <span class="year"></span></h2>
+  <h2>Torv: <span class="torv"></span></h2>
+  <div class="ct-chart ct-perfect-fourth"></div>
+<script>
+$(function(){
+  $(".js-get").click(function(){
+
+    var postURL = "http://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI0809/Energitorv";
+    var jsonData = {
+  "query": [
+    {
+      "code": "Torvproduktion",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "TOT"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json"
+  }
+};
+
+$.post( postURL, JSON.stringify(jsonData), function(data) {
+  console.log(data);
+  var year = data.data[1].key[3]
+  var torv = data.data[0].values[0]
+
+  $(".year").html(year);
+  $(".torv").html(torv);
+    });
+  });
+});
+
+</script>
+</body>
+
+
+
+
+
+</html>

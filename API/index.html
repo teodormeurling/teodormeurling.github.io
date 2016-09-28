@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>API</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+
+
+<h1 class="page-content"><a href="#" class="js-get">Get Data</a></h1>
+  <h2>Year: <span class="year"></span></h2>
+  <h2>Men: <span class="men"></span></h2>
+  <h2>Women: <span class="women"></span></h2>
+
+
+<script>
+$(function(){
+  $(".js-get").click(function(){
+
+    var postURL = "http://api.scb.se/OV0104/v1/doris/sv/ssd/START/BE/BE0101/BE0101A/BefolkningNy";
+    var jsonData = {
+  "query": [
+    {
+      "code": "Region",
+      "selection": {
+        "filter": "vs:RegionRiket99",
+        "values": [
+          "00"
+        ]
+      }
+    },
+    {
+      "code": "Alder",
+      "selection": {
+        "filter": "vs:ÅlderTotA",
+        "values": [
+          "tot"
+        ]
+      }
+    },
+    {
+      "code": "Kon",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "1",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "BE0101N1"
+        ]
+      }
+    },
+    {
+      "code": "Tid",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "2015"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json"
+  }
+};
+
+$.post( postURL, JSON.stringify(jsonData), function(data) {
+  console.log(data);
+  var year = data.data[1].key[3]
+  var menCount = data.data[0].values[0]
+  var womenCount = data.data[1].values[0]
+
+  $(".year").html(year);
+  $(".men").html(menCount);
+  $(".women").html(womenCount);
+    });
+  });
+});
+
+</script>
+</body>
+
+
+
+
+
+</html>
