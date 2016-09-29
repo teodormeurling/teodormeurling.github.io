@@ -1,0 +1,76 @@
+/* Use this selector to override the line style on a given series */
+.ct-series-a .ct-line {
+  /* Set the colour of this series line */
+  stroke: #7BBB38;
+  /* Control the thikness of your lines */
+  stroke-width: 5px;
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 6px 3px;
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-a .ct-point {
+  /* Colour of your points */
+  stroke: #7BBB38;
+  /* Size of your points */
+  stroke-width: 15px;
+  /* Make your points appear as squares */
+  stroke-linecap: round;
+}
+/* Use this selector to override the line style on a given series */
+.ct-series-b .ct-line {
+  /* Set the colour of this series line */
+  stroke: #EE5F81;
+  /* Control the thikness of your lines */
+  stroke-width: 5px;
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 6px 3px;
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-b .ct-point {
+  /* Colour of your points */
+  stroke: #EE5F81;
+  /* Size of your points */
+  stroke-width: 15px;
+  /* Make your points appear as squares */
+  stroke-linecap: round;
+}
+/* Use this selector to override the line style on a given series */
+.ct-series-c .ct-line {
+  /* Set the colour of this series line */
+  stroke: #EE7F5F;
+  /* Control the thikness of your lines */
+  stroke-width: 5px;
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 6px 3px;
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-c .ct-point {
+  /* Colour of your points */
+  stroke: #EE7F5F;
+  /* Size of your points */
+  stroke-width: 15px;
+  /* Make your points appear as squares */
+  stroke-linecap: round;
+}
+/* Use this selector to override the line style on a given series */
+.ct-series-d .ct-line {
+  /* Set the colour of this series line */
+  stroke: #B1FBA3;
+  /* Control the thikness of your lines */
+  stroke-width: 5px;
+  /* Create a dashed line with a pattern */
+  stroke-dasharray: 6px 3px;
+}
+
+/* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+.ct-series-d .ct-point {
+  /* Colour of your points */
+  stroke: #B1FBA3;
+  /* Size of your points */
+  stroke-width: 15px;
+  /* Make your points appear as squares */
+  stroke-linecap: round;
+}

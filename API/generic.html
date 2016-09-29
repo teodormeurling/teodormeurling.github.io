@@ -14,6 +14,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+		<link rel="stylesheet" href="assets/css/chartistoverride.css" />
 		<script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 	</head>
 	<body>
@@ -45,21 +46,31 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="generic.html">The Result</a></li>
-							<li><a href="elements.html">Elements</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Increased Property Sales In Greater Stockholm Area</h1>
+							<h1>Generating a chart using SCB:s API</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
 							<p>Property prices in Stockholm are on the rise, you already know this by now.</p>
 							<p>We were interested if we could find any insights from analysing the property sales in three major Swedishes cities and the rest of Sweden over the past few years.</p>
 							<p>By using the SCB API we fetch and store the numbers in a javascript function, and use it to generate our beautiful graph</p>
 							<p>What we found was shocking...</p>
 							<span><h1 class="page-content"><a href="#chart" class="js-get">Get Data</a></h1></span>
-							<a name="chart"<div class="ct-chart"></div></a>
+							<a name="chart"<div class="ct-chart ct-minor-seventh"></div></a>
+							<div class="inner">
+							<div class="row">
+							<p align="center">
+								<span style="background-color: #7BBB38">SWEDEN</span>
+								<span style="background-color: #EE5F81">STOCKHOLM</span>
+								<span style="background-color: #EE7F5F">GOTHENBURG</span>
+								<span style="background-color: #B1FBA3">MALMÖ</span>
+						</p>
+							</div>
+							</section>
+							</div>
 						</div>
 							<div id="main">
 								<div class="inner">
@@ -76,7 +87,7 @@
 						<footer id="footer">
 							<div class="inner">
 								<ul class="copyright">
-									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									<li>thank you for your wonderful time!</li>
 								</ul>
 							</div>
 						</footer>
@@ -159,17 +170,8 @@
 			  console.log(formated);
 
 			  generateGraph();
-			  // var year = data.data[1].key[3]
-			  // var sthCount = data.data[0].values[0]
-			  // var gbgCount = data.data[0].values[0]
-			  // var mlmCount = data.data[0].values[0]
-			  // var sweCount = data.data[0].values[0]
-			  //
-			  // $(".year").html(year);
-			  // $(".sth").html(sthCount);
-			  // $(".gbg").html(gbgCount);
-			  // $(".mlm").html(mlmCount);
-			  // $(".swe").html(sweCount);
+
+
 			    });
 			  });
 			});
