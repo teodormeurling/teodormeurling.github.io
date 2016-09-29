@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>The Results</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -14,7 +14,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-			 <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 	</head>
 	<body>
 		<!-- Wrapper -->
@@ -44,9 +44,7 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="generic.html">The Result</a></li>
 							<li><a href="elements.html">Elements</a></li>
 						</ul>
 					</nav>
@@ -60,49 +58,28 @@
 							<p>We were interested if we could find any insights from analysing the property sales in three major Swedishes cities and the rest of Sweden over the past few years.</p>
 							<p>By using the SCB API we fetch and store the numbers in a javascript function, and use it to generate our beautiful graph</p>
 							<p>What we found was shocking...</p>
-							<h1 class="page-content"><a href="#chart" class="js-get">Get Data</a></h1>
+							<span><h1 class="page-content"><a href="#chart" class="js-get">Get Data</a></h1></span>
 							<a name="chart"<div class="ct-chart"></div></a>
+						</div>
+							<div id="main">
+								<div class="inner">
+									<h1>Wow!</h1>
+									<span class="image main"><img src="images/pic16.jpg" alt="" /></span>
+									<p>Property sales in the Stockholm area alone are almost as high as the rest of the nation.</p>
+									<p>There are of course many variables that can account for this sharp increase, for instance the people that move to Stockholm to work or study from other parts of the country or other countries even.</p>
+									<p>However, we did not have enough resources to dive into this. </p>
+								</div>
 						</div>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="field half first">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="special" /></li>
-									</ul>
-								</form>
-							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+					<!-- Footer -->
+						<footer id="footer">
+							<div class="inner">
+								<ul class="copyright">
+									<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+							</div>
+						</footer>
 
 			</div>
 
@@ -117,7 +94,9 @@
 
 			$(function(){
 
-			  $(".js-get").click(function(){
+			  $(".js-get").click(function(e){
+					e.preventDefault();
+	 				console.log("Showing");
 
 			    var postURL = "http://api.scb.se/OV0104/v1/doris/sv/ssd/START/BO/BO0501/BO0501C/FastprisBRFRegionAr";
 			    var jsonData = {
