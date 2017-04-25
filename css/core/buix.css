@@ -1,0 +1,64 @@
+/*************************************************
+BUIX - Brutalist User Interface Experience
+**************************************************/
+
+/* BUTTONS
+**********************************/
+button, .button, .btn {
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 0.3em;
+	line-height: 150%;
+}
+.blocked:hover { 
+	cursor: not-allowed !important; 
+}
+
+
+/* NAVIGATION
+**********************************/
+/* Default Nav */
+nav a { display: block; }
+nav a.active { text-decoration: underline; }
+nav a:hover { text-decoration: underline; }
+nav ul li ul li a { padding-left: 0.5em; }
+nav ul li ul li ul li a { padding-left: 1em; }
+
+/* STACKS: create layers
+**********************************/
+.stack-auto { display: flex; }
+.stack-base { z-index: 0 !important; }
+.stack1 { z-index: 1 !important; }
+.stack2 { z-index: 2 !important; }
+.stack3 { z-index: 3 !important; }
+.stack4 { z-index: 4 !important; }
+.stack5 { z-index: 5 !important; }
+.stack6 { z-index: 6 !important; }
+.stack7 { z-index: 7 !important; }
+.stack8 { z-index: 8 !important; }
+.stack9 { z-index: 9 !important; }
+.stack-middle { z-index: 29 !important; }
+.stack-high { z-index: 49 !important; }
+.stack-top { z-index: 99 !important; }
+
+/* STICKIES: fixed positions 
+**********************************/
+.sticky { position: fixed; }
+.sticky-bottom-right { position: fixed; bottom: 0; right: 0; }
+.sticky-bottom-left { position: fixed; bottom: 0; left: 0; }
+.sticky-top-right { position: fixed; top: 0; right: 0; }
+.sticky-top-left { position: fixed; top: 0; left: 0; }
+
+/* TAGS 
+**********************************/
+ul.tags { list-style: none; padding: 0; margin: 0; }
+ul.tags li { display: inline-block; list-style-type: none; padding: 0; margin: 0.4em; }
+
+
+/* REVELATIONS
+**********************************/
+.revelation { display: inline-block; max-width: 50%; height: auto; transition: max-width 2s; -webkit-transition: max-width 2s; }
+.revelation .secret { display: none; }
+.revelation:hover, .revelation:active, .revelation:focus { max-width: 100%; height: auto; cursor: pointer; }
+.revelation:hover .secret, .revelation:active .secret, .revelation:focus .secret { display: block; }
