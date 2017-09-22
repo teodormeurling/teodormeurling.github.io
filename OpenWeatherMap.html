@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check out some live temperatures</title>
+<style>
+body {
+  margin: 150
+}
+</style>
+</head>
+  <body>
+    <select id="city">
+        <option>Stockholm</option>
+        <option>London</option>
+        <option>Alberquerque</option>
+        <option>Kuala Lumpur</option>
+    </select>
+    <h1>Enjoy the graph</h1>
+    <h2> X = time of day, Y = Temperature in Kelvin
+    <svg id="lineChart"></svg>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.4/d3.js"></script>
+    <script>
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var margin = 150;
+
+      var chart = d3.select('#lineChart')
+        .attr('width', window.innerWidth)
+        .attr('height', window.innerHeight);
+
+      var xAxis = chart.append('g')
+        .attr('transform', 'translate(0, ' + (height - margin) + ')')
+      var yAxis = chart.append('g')
+        .attr('transform', 'translate(' + margin + ',0)');
+
+      var path = chart.append('path')
+                  .attr('fill', 'none')
+                  .attr('stroke', 'steelblue')
+                  .attr('stroke-linejoin', 'round')
+                  .attr('stroke-linecap', 'round')
+                  .attr('stroke-width', 1.5)
+
+      getCity('Stockholm');
+
+      var select = d3.select('#city')
+        .on('change', function() {
+          getCity(d3.event.target.value);
+        });
+
+      function getCity(city) {
+        var key = 'b7e78ba250c35d1b20abbf2bcd9869b4'
+        var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&mode=json&appid=' + key;
+
+        d3.json(url, function(data) {
+          var timeParse = d3.timeParse('%Y-%m-%d %H:%M:%S');
+          data = data.list.map(function(d) {
+              return {
+                temp: d.main.temp,
+                date: timeParse(d.dt_txt)
+              };
+          });
+
+          var yMin = d3.min(data, function(d) {
+            return d.temp;
+          });
+
+          var yMax = d3.max(data, function(d) {
+            return d.temp;
+          });
+
+          var yScale = d3.scaleLinear()
+              .domain([yMin, yMax])
+              .range([height - margin, margin]);
+
+          var xScale = d3.scaleTime()
+            .domain(d3.extent(data, function(d) {
+              return d.date
+            }))
+            .range([margin, width - margin]);
+
+          var line = d3.line()
+            .x(function(d, index) {
+              return xScale(d.date);
+            })
+            .y(function(d) {
+              return yScale(d.temp);
+            });
+
+
+          xAxis.call(d3.axisBottom(xScale));
+          yAxis.call(d3.axisLeft(yScale));
+
+          path.datum(data)
+                  .transition()
+                  .attr('d', line);
+
+                });
+              }
+        // chart.selectAll('circle')
+        //   .data(data)
+        //   .enter()
+        //   .append('circle')
+        //   .attr('r', 10)
+        //   .attr('cx', 10)
+        //   .attr('cy', function(d) {
+        //     return d * 2;
+        //   });
+
+        // var circle = chart.append('circle');
+        // circle.attr('r', 10)
+        //   .attr('cx', 10)
+        //   .attr('cy', 10);
+    </script>
+  </body>
+</html>
